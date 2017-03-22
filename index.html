@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Java Script Based Holy Quran</title>
+  <meta name="description" content="A simple java script based Holy Quran">
+  <meta name="author" content="Mir Saman Tajbakhsh">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  
+    <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script charset="UTF-8" src="Scripts/QuranText.js"></script>
+</head>
+<body onload="document.getElementById('viewButton').onclick()">
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+  <div class="container">
+    <div class="row">
+        <center><h1>Simple JS bases Holy Quran</h1></center>
+    </div>
+    
+	
+    <div class="row">
+	<div class="one-half column" style="margin-top: 5%">
+        <h4>About</h4>
+		<p>
+			This simple java script based Quran is developed by <a href="http://mstajbakhsh.ir">Mir Saman Tajbakhsh</a>. The translation is downloaded from <a href="http://tanzil.net/trans/">TANZIL Project</a>.
+		</p>
+      </div>
+	  
+      <div class="one-half column" style="margin-top: 5%">
+        <h4>Sure Browser</h4>
+        <p>
+              <label for="sure">Sure</label>
+              <input class="u-full-width" placeholder="1" id="sure" value="1">
+			  
+			  <label for="ayeh">Ayeh</label>
+              <input class="u-full-width" placeholder="1" id="ayeh" value="1">
+			  
+			<input class="button-primary" value="Next" type="button" onclick="document.getElementById('ayeh').value = parseInt(document.getElementById('ayeh').value) + 1; var temp = getAyeh(document.getElementById('sure').value, document.getElementById('ayeh').value, false);if (temp == 'not found.') {if (document.getElementById('sure').value > 113 || document.getElementById('sure').value < 1) {document.getElementById('sure').value = 1; document.getElementById('ayeh').value = 1; } else{document.getElementById('sure').value = parseInt(document.getElementById('sure').value) + 1; document.getElementById('ayeh').value = 1;} document.getElementById('viewer').value =  getAyeh(document.getElementById('sure').value, document.getElementById('ayeh').value, false)} else { document.getElementById('viewer').value =  temp}">
+			<input class="button-primary" value="View" id="viewButton" type="button" onclick="document.getElementById('viewer').value =  getAyeh(document.getElementById('sure').value, document.getElementById('ayeh').value, false)">
+			<input class="button-primary" value="Previous" type="button" onclick="var temp = previous(document.getElementById('sure').value, document.getElementById('ayeh').value); document.getElementById('sure').value = temp.split('|')[0]; document.getElementById('ayeh').value = temp.split('|')[1]; document.getElementById('viewer').value = temp.split('|')[2];">
+		</p>
+      </div>
+    </div>
+	
+	<div class="row">
+		<textarea class="u-full-width" id="viewer" style="direction:RTL; height: 100%;"></textarea>
+	</div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
