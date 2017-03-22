@@ -2,6 +2,8 @@
 A Java Script Based Quran Application
 This project is very simple Holy Quran based on JavaScript. The content is downloaded from [Tanzil](http://tanzil.net) project. Because it is JS based, it may response lately, especially while navigating to **Previous** Ayeh.
 
+![Quran](http://mstajbakhsh.ir/wp-content/uploads/2017/03/JS-Quran.png)
+
 ## How to use
 Very simple. Just clone the project and open index.html in any browser which supports JavaScript.
 
